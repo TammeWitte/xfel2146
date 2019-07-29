@@ -17,9 +17,9 @@ det.detd = 350
 det.ewald_rad = 200
 det.calc_from_coords()
 
-det.raw_mask = np.array(h5py.File('mask.h5','r')['data/data'])
+det.raw_mask = np.array(h5py.File('../mask.h5','r')['data/data'])
 det.raw_mask = 2-2*det.raw_mask
 rad = np.sqrt(det.cx**2+det.cy**2).reshape(1024,1024)
 det.raw_mask[(det.raw_mask==0) & (rad>Rmax)] = 1
 
-det._write_h5det('dragonfly_mask.h5')
+det._write_h5det('../dragonfly_mask.h5')
